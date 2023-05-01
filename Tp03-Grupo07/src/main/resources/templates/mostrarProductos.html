@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mostrar Productos</title>
+
+<link rel="stylesheet" type= "text/css" href="./css/estilos.css">	
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./stylePagPrincipal.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+<link th:rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+	<style> 
+	  body{
+	 
+	 background-image: url("./img/fondo3.jpg");
+	 background-position: center ;
+	 background-size: cover;
+	background-repeat: no-repeat; 
+	 } 
+	</style>
+
+</head> 
+<body >
+	
+	<header>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">ONESTREET</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="/">Inicio</a></li>
+						
+						<li class="nav-item"><a class="nav-link" href="#">New in</a>
+						</li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> Productos </a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="/producto">Añadir Producto</a></li>
+							</ul>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="#">Contact</a>
+
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+		</div>
+
+
+	</header>
+	
+	<div class= "conteiner my-5">
+	 
+		<div class="row justify-content-center align-items-center text-center">
+		
+		<div class="col-8 ">
+		
+      	<div class="row justify-content-center align-items-center text-center">
+      	
+      	<div class="card shadow" style="width: 18rem;" th:each="prod:${listado}">
+				<b class="card-title " th:text="${prod.nombre}"></b>
+				<img src="./img/fondo4.jpg" class="card-img-top" alt="...">
+				<div class="card-body">
+					<p class="card-text " th:text="${prod.descripcion}"></p>
+					<p class="card-text" th:text="${prod.precio}"></p>
+				</div>
+			</div>
+			
+	
+			
+	      </div>
+	      <a class="btn btn btn-dark" href="/producto">Cargar otro producto</a>
+		  <a class="btn btn btn-dark" href="/">Volver al inicio</a>
+	        
+        </div> 
+        
+     </div>
+		
+	</div>
+	
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-row">
+				<div class="footer-links">
+					<h4>Ayuda</h4>
+					<ul>
+						<li><a href="#">Preguntas Frecuentes</a></li>
+						<li><a href="#">Metodos de Pago</a></li>
+						<li><a href="#">Cambios y devoluciones</a></li>
+					</ul>
+				</div>
+				<div class="footer-links">
+					<h4>Nosotros</h4>
+					<ul>
+						<li><a href="#">Acerca de nosotros</a></li>
+						<li><a href="#">Trabaja con nosotros </a></li>
+					</ul>
+				</div>
+				<div class="footer-links">
+					<h4>Seguinos</h4>
+					<div class="social-link">
+
+						<a href="#"><i class="fab fa-facebook-f"></i></a> 
+						<a href="#"><i class="fab fa-instagram"></i></a> 
+						<a href="#"><i class="fab fa-twitter"></i></a>
+						<a href="#"><i class="fab fa-linkedin"></i></a>
+				    </div>
+				 </div>
+		</div>
+		</div>
+		
+	</footer>
+	
+	
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"
+		type="text/javascript"></script>
+</body>
+</html>
