@@ -4,7 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Mostrar Productos</title>
 
-<link rel="stylesheet" type= "text/css" href="./css/estilos.css">	
+<link rel="stylesheet" type= "text/css" href="./estilos.css">	
  
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
 	<style> 
 	  body{
 	 
-	 background-image: url("./img/fondo3.jpg");
+	 background-image: url("./fondo3.jpg");
 	 background-position: center ;
 	 background-size: cover;
 	background-repeat: no-repeat; 
@@ -50,7 +50,7 @@
 							class="nav-link dropdown-toggle" href="#" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> Productos </a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="/producto">Añadir Producto</a></li>
+								<li><a class="dropdown-item" href="/cargarProducto">Añadir Producto</a></li>
 							</ul>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="#">Contact</a>
@@ -76,17 +76,14 @@
       	
       	<div class="card shadow" style="width: 18rem;" th:each="prod:${listado}">
 				<b class="card-title " th:text="${prod.nombre}"></b>
-				<img src="./img/fondo4.jpg" class="card-img-top" alt="...">
+				<img src="./fondo4.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
 					<p class="card-text " th:text="${prod.descripcion}"></p>
 					<p class="card-text" th:text="${prod.precio}"></p>
 				</div>
-			</div>
-			
-	
-			
+			</div>		
 	      </div>
-	      <a class="btn btn btn-dark" href="/producto">Cargar otro producto</a>
+	      <a class="btn btn btn-dark" href="/cargarProducto">Cargar otro producto</a>
 		  <a class="btn btn btn-dark" href="/">Volver al inicio</a>
 	        
         </div> 
