@@ -2,9 +2,16 @@ package ar.edu.unju.edm.model;
 
 import org.springframework.stereotype.Component;
 
-@Component
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Component
+@Entity
 public class Producto {
+	@Id 
+	@GeneratedValue (strategy = GenerationType.AUTO)
 	private int codigo;
 	private String nombre;
 	private String descripcion; 
