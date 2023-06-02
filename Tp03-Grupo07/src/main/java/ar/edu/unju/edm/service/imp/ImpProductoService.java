@@ -50,9 +50,8 @@ public class ImpProductoService implements ProductoService{
 	}
 
 	@Override
-	public void modificarProducto(Producto productoModificar) {
-		// TODO Auto-generated method stub
-		
+	public void recuperarProducto(int codigo) {
+		return productosRepository.findById(codigo);
 	}
 
 }
