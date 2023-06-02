@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FORMULARIO</title>
+<link rel="stylesheet" href="./stylePagPrincipal.css">
+<link rel="stylesheet" href="./styleCargarProducto.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+
+</head>
+
+<body>
+<header>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">ONESTREET</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="/">Inicio</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">New in</a>
+						</li>
+						
+						<li class="nav-item"><a class="nav-link" href="#">Contact</a>
+
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+		</div>
+</header>
+
+	<div class="container">
+		<div class="row">
+
+			<div class="col-3">
+			</div>
+			<div class="col-6">
+				<form class="form" th:object="${producto}" th:action="@{/guardarProducto}" method="post">
+					<h4>Productos</h4>
+					<div class="form-container">
+						<label class="form-label">Codigo:</label><br> 
+						<input class="form-control" type="number" th:field="*{codigo}"></input><br>
+						<label class="form-label">Nombre:</label><br> 
+						<input class="form-control" type="text" th:field="*{nombre}"></input><br>
+						<label class="form-label">Descripcion:</label><br> 
+						<input class="form-control" type="text" th:field="*{descripcion}"></input><br>
+						<label class="form-label">Stock:</label><br> 
+						<input class="form-control" type="number" th:field="*{stock}"></input><br>
+						<label class="form-label">Precio:</label> <br> 
+						<input class="form-control" type="number" th:field="*{precio}"><br>
+						
+						<input class="botons" type="submit" value="INGRESAR">
+
+					</div>
+				</form>
+			</div>
+			<div class="col-3">
+			</div>
+		</div>
+	</div>
+	
+<footer class="footer">
+		<div class="container">
+			<div class="footer-row">
+				<div class="footer-links">
+					<h4>Ayuda</h4>
+					<ul>
+						<li><a href="#">Preguntas Frecuentes</a></li>
+						<li><a href="#">Metodos de Pago</a></li>
+						<li><a href="#">Cambios y devoluciones</a></li>
+					</ul>
+				</div>
+				<div class="footer-links">
+					<h4>Nosotros</h4>
+					<ul>
+						<li><a href="#">Acerca de nosotros</a></li>
+						<li><a href="#">Trabaja con nosotros </a></li>
+					</ul>
+				</div>
+				<div class="footer-links">
+					<h4>Seguinos</h4>
+					<div class="social-link">
+
+						<a href="#"><i class="fab fa-facebook-f"></i></a> 
+						<a href="#"><i class="fab fa-instagram"></i></a> 
+						<a href="#"><i class="fab fa-twitter"></i></a>
+						<a href="#"><i class="fab fa-linkedin"></i></a>
+				    </div>
+				 </div>
+		</div>
+		</div>
+		
+	</footer>
+	
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"
+		type="text/javascript"></script>
+</body>
+</html>

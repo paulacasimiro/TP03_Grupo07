@@ -20,7 +20,7 @@ public class Producto {
 	private Integer precio;
 	private Integer stock; 
 	private String marca; 
-	private boolean estado;
+	private Boolean estado;
 	@Lob
 	@Column(name="fotografia", columnDefinition="BLOB")
 	private String foto;
@@ -54,11 +54,12 @@ public class Producto {
   }
   
 	//GETTERS AND SETTERS
+	/*
 	public Producto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+*/
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}

@@ -42,7 +42,7 @@
 				<b class="card-title " th:text="${prod.nombre}"></b>
 				
 				<p class="card-text">
-				<img th:src="$('data:image/png;base64,'+prod.foto)" width="50" height="60" alt="">
+				<img th:src="${'data:image/png;base64,'+prod.foto}" width="50" height="60" alt="">
 				</p>
 				
 				<div class="card-body">
@@ -50,6 +50,7 @@
 
 					<p class="card-text" th:text="${prod.precio}"></p>
 					<a href="#" class="btn btn-primary"  th:href="@{'/eliminarProducto/'+${prod.codigo}}">EIMINAR</a>
+					<a href="#" class="btn btn-primary"  th:href="@{'/cargarProducto?codigo='+${prod.codigo}}">MODIFICAR</a>
 
 				</div>
 			</div>		

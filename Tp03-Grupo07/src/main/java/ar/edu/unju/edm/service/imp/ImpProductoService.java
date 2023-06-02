@@ -52,8 +52,8 @@ public class ImpProductoService implements ProductoService{
 	}
 
 	@Override
-	public void recuperarProducto(int codigo) {
-		return productosRepository.findById(codigo);
+	public Optional<Producto> recuperarProducto(int codigo) {
+		return productoRepository.findById(codigo);
 	}
 
 }

@@ -1,5 +1,6 @@
 package ar.edu.unju.edm.controller;
 import java.util.Base64;
+import java.util.Optional;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,10 +15,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 
 
 import ar.edu.unju.edm.model.Producto;
 import ar.edu.unju.edm.service.ProductoService;
+
 
 @Controller
 
@@ -40,8 +44,8 @@ public class ProductoController {
   
   @GetMapping("/cargarProducto")
     	public ModelAndView mostrarFormulario(@RequestParam("codigo") Optional<Integer> codigo) {
-        	Optional<Producto> optProducto = codigo.map(productosService::recuperarProducto).orElse(Optional.of(new Producto()));
-		Producto producto = optProducto.get().orElse(null);
+        	Optional<Producto> optProducto = codigo.map(productoService::recuperarProducto).orElse(Optional.of(new Producto()));
+		Producto producto = optProducto.get(); // .orElse(null);
 		ModelAndView nuevo = new ModelAndView("formulario");
 		nuevo.addObject("producto", producto);
 
