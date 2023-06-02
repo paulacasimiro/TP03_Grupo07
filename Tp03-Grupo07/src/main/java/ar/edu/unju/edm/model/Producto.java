@@ -14,20 +14,29 @@ import jakarta.persistence.Lob;
 public class Producto {
 	@Id 
 	@GeneratedValue (strategy = GenerationType.AUTO)
-	private int codigo;
+	private Integer codigo;
 	private String nombre;
 	private String descripcion; 
-	private int precio;
-	private int stock; 
+	private Integer precio;
+	private Integer stock; 
 	private String marca; 
 	private boolean estado;
 	@Lob
 	@Column(name="fotografia", columnDefinition="BLOB")
 	private String foto;
 	
+	
+	
+	public Producto() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	//CONSTRUCTORES POR PARAMETROS 
-	public Producto(int codigo, String nombre, String descripcion, int precio, int stock, String marca, boolean estado,
-			String foto) {
+	public Producto(Integer codigo, String nombre, String descripcion, Integer precio, Integer stock, String marca,
+			boolean estado) {
+
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -39,52 +48,65 @@ public class Producto {
 		this.foto = foto;
 	}
 	
+   //GETTERS AND SETTERS
+	public Integer getCodigo() {
+  return codigo;
+  }
+  
 	//GETTERS AND SETTERS
 	public Producto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public int getCodigo() {
-		return codigo;
-	}
-	
-	public void setCodigo(int codigo) {
+
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public int getPrecio() {
+
+	public Integer getPrecio() {
 		return precio;
 	}
-	public void setPrecio(int precio) {
+
+	public void setPrecio(Integer precio) {
 		this.precio = precio;
 	}
-	public int getStock() {
+
+	public Integer getStock() {
 		return stock;
 	}
-	public void setStock(int stock) {
+
+	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
+
 	public String getMarca() {
 		return marca;
 	}
+
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
+
 	public boolean isEstado() {
 		return estado;
 	}
+
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
@@ -96,7 +118,4 @@ public class Producto {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-	
-	
-	
 }
