@@ -40,11 +40,17 @@
       	
       	<div class="card shadow" style="width: 18rem;" th:each="prod:${listado}">
 				<b class="card-title " th:text="${prod.nombre}"></b>
-				<img src="./fondo4.jpg" class="card-img-top" alt="...">
+				
+				<p class="card-text">
+				<img th:src="$('data:image/png;base64,'+prod.foto)" width="50" height="60" alt="">
+				</p>
+				
 				<div class="card-body">
 					<p class="card-text " th:text="${prod.descripcion}"></p>
+
 					<p class="card-text" th:text="${prod.precio}"></p>
 					<a href="#" class="btn btn-primary"  th:href="@{'/eliminarProducto/'+${prod.codigo}}">EIMINAR</a>
+
 				</div>
 			</div>		
 	      </div>

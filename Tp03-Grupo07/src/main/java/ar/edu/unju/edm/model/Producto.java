@@ -2,10 +2,12 @@ package ar.edu.unju.edm.model;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 
 @Component
 @Entity
@@ -19,6 +21,9 @@ public class Producto {
 	private Integer stock; 
 	private String marca; 
 	private boolean estado;
+	@Lob
+	@Column(name="fotografia", columnDefinition="BLOB")
+	private String foto;
 	
 	
 	
@@ -31,6 +36,7 @@ public class Producto {
 	//CONSTRUCTORES POR PARAMETROS 
 	public Producto(Integer codigo, String nombre, String descripcion, Integer precio, Integer stock, String marca,
 			boolean estado) {
+
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -39,13 +45,18 @@ public class Producto {
 		this.stock = stock;
 		this.marca = marca;
 		this.estado = estado;
+		this.foto = foto;
 	}
-
-	
 	
    //GETTERS AND SETTERS
 	public Integer getCodigo() {
-		return codigo;
+  return codigo;
+  }
+  
+	//GETTERS AND SETTERS
+	public Producto() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public void setCodigo(Integer codigo) {
@@ -99,9 +110,12 @@ public class Producto {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-	
 
-		
-	
-	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 }
