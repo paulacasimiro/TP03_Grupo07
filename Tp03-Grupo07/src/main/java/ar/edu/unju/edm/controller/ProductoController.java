@@ -3,13 +3,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 
 import ar.edu.unju.edm.model.Producto;
 import ar.edu.unju.edm.service.ProductoService;
-import ar.edu.unju.edm.util.Productos;
 
 @Controller
 
@@ -35,6 +35,24 @@ public class ProductoController {
 		nuevo.addObject("producto", unProducto); 
 		return nuevo;
 	}
+	@GetMapping("/eliminarProducto/{codigo}")
+	public ModelAndView eliminarProducto (@PathVariable (name = "codigo") Integer codigo) {
+		ModelAndView nuevo= new ModelAndView ("listado"); 
+		try {
+			productoService.eliminarProducto(codigo); 
+		}catch (Exception e) {
+			nuevo.addObject("eliminarProductoErrorMessage", e.getMessage()); 
+		}
+		
+		try {
+			nuevo.addObject("listado", productoService.listarTodosProductos()); 
+		}catch (Exception e) {
+			nuevo.addObject("eliminarProductoErrorMessage", e.getMessage()); 
+			
+		}
+		return nuevo;
+		
+	}
 	
 	@PostMapping("/guardarProducto")
 	public ModelAndView guardarProducto(@ModelAttribute("formulario") Producto productoConDatos) {
@@ -44,6 +62,7 @@ public class ProductoController {
 		
 		return nuevo;
 	}
-	
+	 
+
 	
 }

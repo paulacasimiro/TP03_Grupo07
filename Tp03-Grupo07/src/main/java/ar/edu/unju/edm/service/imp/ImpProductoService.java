@@ -40,13 +40,15 @@ public class ImpProductoService implements ProductoService{
 	@Override
 	public List<Producto> listarTodosProductos() {
 		// TODO Auto-generated method stub
-		return (List<Producto>) productoRepository.findAll(); 
+		return (List<Producto>) productoRepository.findByEstado(true); 
 	}
 
 	@Override
 	public Producto listarUnProducto(Integer codigo) {
 		// TODO Auto-generated method stub
-		return null;
+		Optional<Producto> aux = Optional.of(new Producto()); 
+		aux= productoRepository.findById(codigo);
+		return aux.get();
 	}
 
 	@Override
